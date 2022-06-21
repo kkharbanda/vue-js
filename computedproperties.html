@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>computed</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model ="user">
+      <button @click="toggleAction">otheraction</button>
+message {{ compMessge }}
+active {{ compactive }}
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          user :'',
+          active :false
+        };
+      },
+      computed:{
+        compMessge(){
+            console.log("computed maessage");
+            return this.user === 'Francis'?'welcome':'Now allowed'
+        },
+        compactive(){
+            console.log('computed active')
+            return this.active ?'active':'Not active'
+        }
+      },
+      methods: {
+        toggleAction(){
+            this.active = this.active?false:true
+        }
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
