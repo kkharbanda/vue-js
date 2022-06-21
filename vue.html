@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <p v-if="userage>allowedAge">allowed to enter</p>
+      <p v-else-if="user === 'francis'">you allowed</p>
+      <p v-else>you are not</p> -->
+      <!-- <p v-show="checkUser()">show It</p>
+      <p v-if="checkUser()">this is francis</p>
+      <p v-else>Not fransixc</p> -->
+      <!-- <ul>
+        <li v-for ="name in names">{{ name}}</li>
+      </ul> -->
+      <!-- <ul>
+        <li v-for="(name , index) in names">
+            {{name}} - {{index}}
+        </li>
+       
+      </ul> -->
+      <ul>
+        <li v-for="(objs , index) in obj">
+            {{objs.brand}} - {{index}} - {{objs.color}}
+        </li>
+       
+      </ul>
+      <ul>
+        <li v-for="(key,value,index) in users">
+            {{key}} - {{value}} - {{index}}
+        </li>
+    </ul>
+<div>{{users.name}}</div>
+{{update()}}
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+            users :{
+                name:'kt',
+                lastname :'go'
+            },
+          user: "stevee",
+          userage: 13,
+          allowedAge: 18,
+          names: ["francis", "jane", "steve"],
+          obj  : [
+            {
+                brand : 'frr',
+                color:'red'
+            },
+            {
+                brand : 'ffrr',
+                color:'reffred'
+            },
+            {
+                brand : 'frrrer',
+                color:'reretd'
+            },
+          ]
+        };
+      },
+      methods: {
+        checkUser() {
+          return this.user === "francis" ? true : false;
+        },
+        update(){
+            setTimeout(()=>{
+            this.users.name = 'steve'
+            },1000)
+        }
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

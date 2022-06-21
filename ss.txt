@@ -1,0 +1,10 @@
+
+live server Alt +o Alt +l
+this.array1[Math.floor(Math.random()*this.array1.length)]
+Built in directive
+conditional rendering
+v-if, v-show have some differnce 
+v-show does nt remove it from dom it add css i.e display:none
+Looper
+disable updates
+events

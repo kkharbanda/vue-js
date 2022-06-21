@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{welcome()}}</p>
+      <p>{{ gretting }}</p>
+      <p>is It true {{ istrue ? 'Yes':'No' }}</p>
+      <p>{{array1[0]}}</p>
+      <p>{{obj.ccar}}</p>
+      <p>{{func()}}</p>
+      <img v-bind:src="src" v-bind:alt="alt" />
+      <a v-bind:href="link"></a>
+      <div v-text= "mytext"></div>
+      <div v-html = "myhtml"></div>
+    </div>
+  </body>
+  <script>
+    const date = new Date().toLocaleString();
+    const App = {
+      data() {
+        return {
+          gretting: "vue js" + date,
+          istrue: true,
+          array1: ["test1", "test2"],
+          obj: {
+            ccar: "test vuesm",
+          },
+          func: () => {
+            return "maessage from function";
+          },
+
+        //   src: "https://picsum.photos/id/237/200/300",
+        src :"",
+          alt: "imagesrc",
+          link: "http://google.com",
+          mytext: "hgouf",
+          myhtml: "<b>html tsext</b>"
+        };
+      },
+      methods: {
+        welcome() {
+          const randoname =
+            this.array1[Math.floor(Math.random() * this.array1.length)];
+          if (this.istrue) {
+            return `${this.gretting},name is ${randoname}`;
+          }
+          return this.obj.ccar;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
