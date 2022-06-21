@@ -8,3 +8,4 @@ v-show does nt remove it from dom it add css i.e display:none
 Looper
 disable updates
 events
+events and arguments

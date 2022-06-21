@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>EventsAr</title>
+  </head>
+  <body>
+    <div id="app">
+      <b>{{name}}</b>
+      <button v-on:click.right="changeName('Run',$event)">click</button>
+
+      <form v-on:submit.prevent="handleForm">
+        <input type="text" />
+        <button type="submit">click</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          name: "testvue",
+        };
+      },
+      methods: {
+        handleForm() {
+          console.log("submit");
+        },
+        changeName(newName, events) {
+          this.name = newName;
+          console.log(events);
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
