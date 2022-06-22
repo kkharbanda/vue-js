@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        <order></order>
+    </div>
+
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+import order from './components/orders/app-index.vue'
+export default{
+    components:{
+        order
+    },
+data(){
+   return{
+    orders :[
+        {"name":"order1","price":"100"},
+        {"name":"order12","price":"200"}
+    ]
+   } 
+},
+provide(){
+            return {
+                orders: this.orders,
+                changeOrder: this.changeOrder
+            }
+        },
+methods:{
+            changeOrder(){
+                this.orders[0].price = 'Renault'
+            }
+        }
 }
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
